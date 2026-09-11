@@ -1,5 +1,7 @@
-# Model weights (binary besar) — sediakan terpisah / Git LFS bila perlu
+# Model weights — ikut di-push hanya yang di backend/models_weights,
+# file .pt duplikat/nyasar di tempat lain tetap diabaikan
 *.pt
+!backend/models_weights/*.pt
 
 # File hasil percobaan yang nyasar di root
 scratch_*.tif
