@@ -1,0 +1,26 @@
+# Model weights (binary besar) — sediakan terpisah / Git LFS bila perlu
+*.pt
+
+# File hasil percobaan yang nyasar di root
+scratch_*.tif
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+env/
+*.egg-info/
+
+# Environment & secrets
+.env
+.env.local
+*.env
+
+# OS & editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/

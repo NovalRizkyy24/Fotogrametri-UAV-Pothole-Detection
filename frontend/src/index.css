@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-dark: #0b0f19;
+  --bg-card: rgba(18, 26, 44, 0.75);
+  --bg-card-hover: rgba(26, 38, 64, 0.85);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(0, 210, 255, 0.25);
+
+  --accent-cyan: #00f2fe;
+  --accent-blue: #4facfe;
+  --accent-purple: #7f00ff;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --severity-light: #eab308;
+  --severity-medium: #f97316;
+  --severity-heavy: #ef4444;
+
+  /* Surface tints used for inputs, sub-panels, headers & modals */
+  --bg-input: rgba(0, 0, 0, 0.25);
+  --bg-input-strong: rgba(0, 0, 0, 0.4);
+  --bg-panel-soft: rgba(0, 0, 0, 0.2);
+  --bg-panel-softer: rgba(0, 0, 0, 0.3);
+  --bg-panel-strong: rgba(0, 0, 0, 0.45);
+  --bg-overlay-subtle: rgba(255, 255, 255, 0.03);
+  --bg-overlay-hover: rgba(255, 255, 255, 0.05);
+  --bg-overlay-hover-strong: rgba(255, 255, 255, 0.1);
+  --bg-modal-backdrop: rgba(5, 8, 17, 0.8);
+  --bg-header: rgba(11, 15, 25, 0.85);
+  --bg-image-slot: #050811;
+  --bg-table-head: #0b0f19;
+  --shadow-panel: rgba(0, 0, 0, 0.37);
+  --scrollbar-track: #0b0f19;
+  --scrollbar-thumb: #1e293b;
+  --scrollbar-thumb-hover: #334155;
+
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg-dark: #f4f6fb;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --border-color: rgba(15, 23, 42, 0.1);
+  --border-glow: rgba(0, 150, 200, 0.2);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  --bg-input: rgba(15, 23, 42, 0.04);
+  --bg-input-strong: rgba(15, 23, 42, 0.06);
+  --bg-panel-soft: rgba(15, 23, 42, 0.03);
+  --bg-panel-softer: rgba(15, 23, 42, 0.04);
+  --bg-panel-strong: rgba(15, 23, 42, 0.05);
+  --bg-overlay-subtle: rgba(15, 23, 42, 0.03);
+  --bg-overlay-hover: rgba(15, 23, 42, 0.05);
+  --bg-overlay-hover-strong: rgba(15, 23, 42, 0.08);
+  --bg-modal-backdrop: rgba(226, 232, 240, 0.8);
+  --bg-header: rgba(255, 255, 255, 0.85);
+  --bg-image-slot: #eef2f7;
+  --bg-table-head: #ffffff;
+  --shadow-panel: rgba(15, 23, 42, 0.12);
+  --scrollbar-track: #f1f5f9;
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-thumb-hover: #94a3b8;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-dark);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(79, 172, 254, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(127, 0, 255, 0.08) 0px, transparent 50%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Glassmorphism card container */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 var(--shadow-panel);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Buttons & Interactive Elements */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 100%);
+  color: #0b0f19;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px 0 rgba(0, 242, 254, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(0, 242, 254, 0.45);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Code / Mono font styling */
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
