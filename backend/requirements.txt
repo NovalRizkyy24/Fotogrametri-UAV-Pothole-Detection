@@ -1,0 +1,25 @@
+# Dependensi backend Pothole3D Vision (diuji dengan Python 3.12)
+# Instal dari root project:  pip install -r backend/requirements.txt
+#
+# Catatan: torch & torchvision ikut terpasang lewat ultralytics (versi CPU).
+# Untuk GPU NVIDIA, instal torch versi CUDA dulu dari https://pytorch.org/get-started/locally/
+
+# Web API
+fastapi==0.105.0
+uvicorn==0.24.0.post1
+python-multipart==0.0.32
+pydantic==2.5.2
+
+# Deteksi (YOLOv8-seg)
+ultralytics==8.3.158
+opencv-python==4.10.0.84
+
+# Geospasial & komputasi
+rasterio==1.5.0
+numpy==2.2.6
+scikit-learn==1.7.0
+
+# Ekspor & visualisasi
+pandas==2.3.0
+openpyxl==3.1.2
+matplotlib==3.11.0
