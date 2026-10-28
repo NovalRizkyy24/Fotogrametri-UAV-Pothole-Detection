@@ -4,7 +4,7 @@ Aplikasi web untuk **mendeteksi lubang jalan dan mengestimasi dimensi & volumeny
 
 Input berupa **Orthomosaic** dan **DSM** (GeoTIFF) hasil pengolahan fotogrametri (mis. Pix4Dmapper). Lubang disegmentasi dengan **YOLOv8-seg**, lalu kedalamannya dihitung dari DSM dengan menyesuaikan bidang permukaan jalan memakai **RANSAC**. Hasilnya berupa luas, kedalaman, dan volume tiap lubang, visualisasi 2D, tampilan mesh 3D, serta ekspor CSV/XLSX.
 
-![Tampilan hasil web](hasilweb.png)
+![Halaman Beranda Pothole3D Vision](docs/screenshots/01-beranda.png)
 
 ---
 
@@ -15,6 +15,26 @@ Input berupa **Orthomosaic** dan **DSM** (GeoTIFF) hasil pengolahan fotogrametri
 3. **Estimasi kedalaman**: Di sekitar mask (buffer piksel), bidang jalan di-*fit* dengan RANSAC. Selisih bidang dengan DSM menjadi kedalaman.
 4. **Metrik**: luas, kedalaman maksimum/rata-rata, dan volume tiap lubang, plus titik validasi (terdalam + 4 titik tepi).
 5. **Output**: gambar visualisasi, mesh 3D (opsional, jika mesh OBJ diunggah), dan file CSV/XLSX.
+
+## Tampilan Aplikasi
+
+Contoh hasil analisis memakai job **"Lubang Jalan 001"**. Dokumentasi lengkap tiap halaman ada di [docs/README.md](docs/README.md).
+
+| Upload & Process | Riwayat Job |
+|---|---|
+| ![Halaman Upload](docs/screenshots/02-upload.png) | ![Halaman Riwayat Job](docs/screenshots/03-riwayat.png) |
+
+**Hasil analisis: visualisasi 2D** (Orthomosaic, overlay deteksi YOLOv8-seg, dan peta kedalaman)
+
+![Hasil Visualisasi 2D](docs/screenshots/04-hasil-visualisasi-2d.png)
+
+| Model 3D + bidang referensi RANSAC | Model 3D tanpa bidang RANSAC |
+|---|---|
+| ![Model 3D dengan bidang RANSAC](docs/screenshots/05-hasil-model-3d.png) | ![Model 3D tanpa bidang RANSAC](docs/screenshots/06-hasil-model-3d-tanpa-ransac.png) |
+
+**Detail kedalaman per piksel**
+
+![Detail Titik Kedalaman](docs/screenshots/07-detail-titik-kedalaman.png)
 
 ## Teknologi
 
@@ -28,6 +48,7 @@ Input berupa **Orthomosaic** dan **DSM** (GeoTIFF) hasil pengolahan fotogrametri
 ```
 website-6/
 ├── run_servers.py            # Menjalankan backend + frontend sekaligus
+├── docs/                     # Dokumentasi tampilan + screenshots/
 ├── backend/
 │   ├── requirements.txt      # Daftar library Python
 │   ├── app/
@@ -165,7 +186,7 @@ Frontend memanggil backend di `http://localhost:8000` (lihat [frontend/src/servi
 
 ## Cara Pakai
 
-1. Buka http://localhost:5173.
+1. Buka http://localhost:5173. Halaman **Beranda** menampilkan ringkasan seluruh job dan alur pemrosesan. Klik **Mulai Analisis** untuk memulai.
 2. Di halaman **Upload**, unggah:
    - **Orthomosaic** (GeoTIFF) – wajib
    - **DSM** (GeoTIFF) – wajib
