@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
+import HomePage from './pages/HomePage';
 import UploadPage from './pages/UploadPage';
 import ProgressPage from './pages/ProgressPage';
 import ResultPage from './pages/ResultPage';
 import HistoryPage from './pages/HistoryPage';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('upload'); // 'upload' | 'progress' | 'result' | 'history'
+  const [activeTab, setActiveTab] = useState('home'); // 'home' | 'upload' | 'progress' | 'result' | 'history'
   const [currentJobId, setCurrentJobId] = useState(null);
 
   const handleJobStarted = (jobId) => {
@@ -29,6 +30,13 @@ export default function App() {
       <Navbar activeTab={activeTab} setActiveTab={setActiveTab} currentJobId={currentJobId} />
 
       <main style={{ flex: 1, padding: '32px 24px', maxWidth: '1400px', width: '100%', margin: '0 auto' }}>
+        {activeTab === 'home' && (
+          <HomePage
+            onStart={() => setActiveTab('upload')}
+            onOpenHistory={() => setActiveTab('history')}
+          />
+        )}
+
         {activeTab === 'upload' && (
           <UploadPage
             onJobStarted={handleJobStarted}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { UploadCloud, BarChart3, History, ShieldAlert, Cpu, Sun, Moon } from 'lucide-react';
+import { Home, UploadCloud, BarChart3, History, ShieldAlert, Cpu, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 export default function Navbar({ activeTab, setActiveTab, currentJobId }) {
@@ -23,7 +23,7 @@ export default function Navbar({ activeTab, setActiveTab, currentJobId }) {
         justifyContent: 'space-between'
       }}>
         {/* Brand Logo & Title */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer' }} onClick={() => setActiveTab('upload')}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer' }} onClick={() => setActiveTab('home')}>
           <div style={{
             width: '42px',
             height: '42px',
@@ -48,6 +48,27 @@ export default function Navbar({ activeTab, setActiveTab, currentJobId }) {
 
         {/* Navigation Tabs */}
         <nav style={{ display: 'flex', gap: '8px', background: 'rgba(255, 255, 255, 0.03)', padding: '4px', borderRadius: '14px', border: '1px solid var(--border-color)' }}>
+          <button
+            onClick={() => setActiveTab('home')}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '10px 18px',
+              borderRadius: '10px',
+              border: 'none',
+              cursor: 'pointer',
+              fontWeight: 600,
+              fontSize: '0.9rem',
+              transition: 'all 0.2s ease',
+              background: activeTab === 'home' ? 'rgba(0, 242, 254, 0.15)' : 'transparent',
+              color: activeTab === 'home' ? 'var(--accent-cyan)' : 'var(--text-secondary)'
+            }}
+          >
+            <Home size={18} />
+            <span>Beranda</span>
+          </button>
+
           <button
             onClick={() => setActiveTab('upload')}
             style={{
